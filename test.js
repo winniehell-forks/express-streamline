@@ -112,7 +112,10 @@ exports['express-streamline'] = {
             .get('/router')
             .expect(200)
             .expect('Hello from Router!')
-            .end(next)
+            .end(function() {
+                assert(!app.locals.router_falling_through);
+                next();
+            })
     }
 
 };

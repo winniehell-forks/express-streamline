@@ -136,17 +136,13 @@ app.use(function (err, req, res, _) {
 if (router) {
     // Router example (normal):
     router.get('/router', function (req, res, _) {
-        // wait if we fall through
-        process.nextTick(function () {
-            res.send(res.locals.message);
-        });
-
-        res.locals.message = 'Hello from Router!';
+        res.send('Hello from Router!');
     });
 
     // Router example (fall-through check):
     router.get('/router', function (req, res, _) {
-        res.locals.message = 'Router is falling through...';
+        throw new Error('not');
+        app.locals.router_falling_through = true;
     });
 
     app.use('/', router);
