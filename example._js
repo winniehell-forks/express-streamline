@@ -25,6 +25,7 @@ var crypto = require('crypto');
 var express = require('./');
 var logger = require('morgan');
 var responseTime = require('response-time');
+var router = express.Router();
 var streamlineGlobal = require('streamline/lib/globals');
 
 var app = express();
@@ -130,6 +131,26 @@ app.use(function (err, req, res, _) {
     setTimeout(_, 1);
     res.status(500).send(err.message);
 });
+
+// there is no Router for Express 3
+if (router) {
+    // Router example (normal):
+    router.get('/router', function (req, res, _) {
+        // wait if we fall through
+        process.nextTick(function () {
+            res.send(res.locals.message);
+        });
+
+        res.locals.message = 'Hello from Router!';
+    });
+
+    // Router example (fall-through check):
+    router.get('/router', function (req, res, _) {
+        res.locals.message = 'Router is falling through...';
+    });
+
+    app.use('/', router);
+}
 
 module.exports = app;
 

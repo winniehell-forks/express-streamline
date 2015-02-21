@@ -98,6 +98,21 @@ exports['express-streamline'] = {
             .expect(200)
             .expect({})
             .end(next)
+    },
+
+    'should support Routers': function (next) {
+        var expressVersion = require('express/package.json').version;
+
+        if (expressVersion.match(/^3./)) {
+            console.log('Skipping this test for Express ' + expressVersion);
+            next();
+        }
+
+        req(app)
+            .get('/router')
+            .expect(200)
+            .expect('Hello from Router!')
+            .end(next)
     }
 
 };
