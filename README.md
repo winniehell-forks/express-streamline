@@ -5,7 +5,7 @@
 Patch for [Express](http://expressjs.com/) to add support for
 [Streamline](https://github.com/Sage/streamlinejs) syntax in Express apps.
 
-Supports Express 2 through 5.
+Supports Express 4 and 5.
 
 ## Example
 

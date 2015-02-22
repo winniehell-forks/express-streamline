@@ -132,21 +132,18 @@ app.use(function (err, req, res, _) {
     res.status(500).send(err.message);
 });
 
-// there is no Router for Express 3
-if (router) {
-    // Router example (normal):
-    router.get('/router', function (req, res, _) {
-        res.send('Hello from Router!');
-    });
+// Router example (normal):
+router.get('/router', function (req, res, _) {
+    res.send('Hello from Router!');
+});
 
-    // Router example (fall-through check):
-    router.get('/router', function (req, res, _) {
-        throw new Error('not');
-        app.locals.router_falling_through = true;
-    });
+// Router example (fall-through check):
+router.get('/router', function (req, res, _) {
+    throw new Error('not');
+    app.locals.router_falling_through = true;
+});
 
-    app.use('/', router);
-}
+app.use('/', router);
 
 module.exports = app;
 
