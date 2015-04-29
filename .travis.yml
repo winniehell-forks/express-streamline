@@ -4,9 +4,13 @@ node_js:
   - "0.12"
   - "0.10"
   - "0.8"
+  - "iojs"
+  - "iojs-v1.0"
+  - "iojs-v1.8"
 env:
   - EXPRESS_VERSION='>= 5.0.0-alpha.1'
   - EXPRESS_VERSION=4
   - EXPRESS_VERSION=3
 before_script:
   - npm install express@"$EXPRESS_VERSION"
+
