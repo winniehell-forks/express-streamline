@@ -125,6 +125,11 @@ app.patch('/resource', function (req, res, _) {
     res.send('Resource patched.');
 });
 
+// Example of using more arguments than usual
+app.get('/tooMany', function (req, res, _, too, many, args) {
+    res.send('arguments: ' + arguments.length);
+});
+
 // Example of error handler:
 app.use(function (err, req, res, _) {
     setTimeout(_, 1);

@@ -98,6 +98,14 @@ exports['express-streamline'] = {
             .expect(200)
             .expect({})
             .end(next)
+    },
+
+    'should warn about (but ignore) additional arguments': function (next) {
+        req(app)
+          .get('/tooMany')
+          .expect(200)
+          .expect('arguments: 3')
+          .end(next)
     }
 
 };
