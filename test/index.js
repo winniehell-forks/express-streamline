@@ -1,11 +1,11 @@
 var assert = require('assert');
-var app = require('./example');
+var app = require('../example');
 var req = require('supertest');
 
 exports['express-streamline'] = {
 
     'should properly mount subapps': function () {
-        var express = require('./');
+        var express = require('..');
         var app = express();
         var subapp = express();
         app.use('/subapp', subapp);

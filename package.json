@@ -27,7 +27,7 @@
     "node": "*"
   },
   "scripts": {
-    "test": "mocha --ui exports --reporter spec --compilers _js:streamline/register"
+    "test": "mocha"
   },
   "homepage": "https://github.com/aseemk/express-streamline",
   "repository": {
