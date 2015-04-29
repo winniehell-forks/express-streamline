@@ -34,14 +34,21 @@ try {
 //
 function wrap(handler, verb) {
     var isErrorHandler = (verb === 'error') ||
-        (verb !== 'param' && handler.length >= 4);
+        (verb !== 'param' && handler.length === 4);
 
     // unify express 2 and 3 to imaginary 'error' verb:
     if (isErrorHandler) {
         verb = 'error';
     }
 
-    var maxArgs = verb === 'param' ? 5 : 4;
+    var maxArgs;
+
+    if ((verb === 'param') || (verb === 'error')) {
+        maxArgs = 4;
+    } else {
+        maxArgs = 3;
+    }
+
     if (handler.length > maxArgs) {
         var handlerStr = handler.toString().replace(/(^|\n)/g, '$1| ');
         console.warn(
