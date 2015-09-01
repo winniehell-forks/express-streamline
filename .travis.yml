@@ -4,9 +4,9 @@ node_js:
   - "0.12"
   - "0.10"
   - "0.8"
-  - "iojs"
-  - "iojs-v1.0"
   - "iojs-v1.8"
+  - "iojs-v2.5"
+  - "iojs-v3.2"
 env:
   - EXPRESS_VERSION='>= 5.0.0-alpha.1'
   - EXPRESS_VERSION=4
