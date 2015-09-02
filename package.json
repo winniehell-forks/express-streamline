@@ -20,9 +20,6 @@
     "streamline": "0.10.x",
     "supertest": "0.15.x"
   },
-  "peerDependencies": {
-    "express": "*"
-  },
   "engines": {
     "node": "*"
   },
